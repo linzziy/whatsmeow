@@ -14,11 +14,11 @@ CREATE TABLE whatsmeow_device (
 	signed_pre_key_id  INTEGER NOT NULL CHECK ( signed_pre_key_id >= 0 AND signed_pre_key_id < 16777216 ),
 	signed_pre_key_sig bytea   NOT NULL CHECK ( length(signed_pre_key_sig) = 64 ),
 
-	adv_key             bytea NOT NULL,
-	adv_details         bytea NOT NULL,
-	adv_account_sig     bytea NOT NULL CHECK ( length(adv_account_sig) = 64 ),
-	adv_account_sig_key bytea NOT NULL CHECK ( length(adv_account_sig_key) = 32 ),
-	adv_device_sig      bytea NOT NULL CHECK ( length(adv_device_sig) = 64 ),
+	adv_key             bytea NULL,
+	adv_details         bytea NULL,
+	adv_account_sig     bytea NULL CHECK ( length(adv_account_sig) = 64 ),
+	adv_account_sig_key bytea NULL CHECK ( length(adv_account_sig_key) = 32 ),
+	adv_device_sig      bytea NULL CHECK ( length(adv_device_sig) = 64 ),
 
 	platform      TEXT NOT NULL DEFAULT '',
 	business_name TEXT NOT NULL DEFAULT '',
